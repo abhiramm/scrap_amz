@@ -7,6 +7,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'mysql2', '~> 0.3.18'
 group :development, :test do
   gem 'byebug'
 end
@@ -16,7 +17,6 @@ group :development do
 end
 gem 'bootstrap-sass'
 gem 'figaro', '>= 1.0.0.rc1'
-gem 'mysql2'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 group :development do
