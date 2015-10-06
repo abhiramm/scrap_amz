@@ -8,6 +8,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'mysql2', '~> 0.3.18'
+gem 'mechanize'
+gem 'spreadsheet'
 group :development, :test do
   gem 'byebug'
 end
@@ -34,8 +36,9 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'pry-rails'
-  gem 'pry-rescue'
+#  gem 'pry-rails'
+ # gem 'pry-rescue'
+  gem 'pry'
   gem 'rspec-rails'
   gem 'rubocop'
 end

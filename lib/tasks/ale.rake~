@@ -1,0 +1,21 @@
+namespace :products do
+        task :from_alex_com => :environment do
+                a = Mechanize.new { |agent|
+                        agent.user_agent_alias = 'Mac Safari'
+                }
+                page = a.get('http://www.aliexpress.com/w/wholesale-halloween-costumes.html?spm=2114.01020208.0.308.BDtBOY&initiative_id=SB_20150923065059&site=glo&g=y&shipCountry=us&SearchText=halloween+costumes')
+                page.search('#main-wrap h3 a').each do |l|
+                        url = l.attributes['href'].to_s
+                        puts "URL #{url}"
+                        product_page = a.get(url)
+                        puts "Product Name #{product_page.search('.main-wrap .product-name').text}"
+                        puts "Product Description #{product_page.search('.main-wrap .ui-box-title').text}"
+
+
+                        book = Spreadsheet::Workbook.new
+                        sheet1 = book.create_worksheet
+sheet1.row(3).push 'Charles Lowe', 'Author of the ruby-ole Library'
+                        book.write 'public/aliexpress_data.xls'
+                end
+        end
+end
